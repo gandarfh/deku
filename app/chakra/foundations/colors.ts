@@ -61,3 +61,5 @@ export const colors = {
     100: "#FFDCB3",
   },
 };
+
+export const semanticTokens = {};

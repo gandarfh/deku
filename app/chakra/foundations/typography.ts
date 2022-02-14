@@ -1,0 +1,30 @@
+export const typography = {
+  fonts: {
+    body: "Montserrat",
+    heading: "Montserrat",
+    mono: "Montserrat",
+  },
+  fontSizes: {
+    "t-xs": { m: "0.625rem", d: "0.75rem" },
+    "t-sm": { m: "0.75rem", d: "0.875rem" },
+    "t-md": { m: "0.875rem", d: "1rem" },
+    "t-lg": { m: "1rem", d: "1.125rem" },
+    "t-xl": { m: "1.125rem", d: "1.25rem" },
+    "h-xs": { m: "0.875rem", d: "1rem" },
+    "h-sm": { m: "1rem", d: "1.25rem" },
+    "h-md": { m: "1.25rem", d: "1.5rem" },
+    "h-lg": { m: "1.5rem", d: "2rem" },
+    "h-xl": { m: "2rem", d: "2.5rem" },
+  },
+  fontWeights: {
+    hairline: 100,
+    thin: 200,
+    light: 300,
+    normal: 400,
+    medium: 500,
+    semiBold: 600,
+    bold: 700,
+    extrabold: 800,
+    black: 900,
+  },
+};

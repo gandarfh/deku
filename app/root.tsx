@@ -8,7 +8,13 @@ import {
   useCatch,
 } from "remix";
 import type { MetaFunction } from "remix";
-import { Box, ChakraProvider, Heading, GlobalStyle } from "@chakra-ui/react";
+import {
+  Box,
+  ChakraProvider,
+  Heading,
+  GlobalStyle,
+  DarkMode,
+} from "@chakra-ui/react";
 import theme from "./chakra/theme";
 
 export const meta: MetaFunction = () => {
@@ -20,6 +26,18 @@ interface DocumentProps {
   title?: string;
 }
 
+export function links() {
+  return [
+    { rel: "preconnect", href: "https://fonts.googleapis.com" },
+
+    { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
+    {
+      href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap",
+      rel: "stylesheet",
+    },
+  ];
+}
+
 const Document = ({ children, title }: DocumentProps) => {
   return (
     <html lang="en">
@@ -28,17 +46,18 @@ const Document = ({ children, title }: DocumentProps) => {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
+
         <title>{title}</title>
       </head>
-      <ChakraProvider theme={theme}>
-        <GlobalStyle />
-        <body>
+      <body>
+        <ChakraProvider theme={theme}>
+          <GlobalStyle />
           {children}
           <ScrollRestoration />
           <Scripts />
           {process.env.NODE_ENV === "development" && <LiveReload />}
-        </body>
-      </ChakraProvider>
+        </ChakraProvider>
+      </body>
     </html>
   );
 };

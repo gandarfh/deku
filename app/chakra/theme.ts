@@ -1,12 +1,26 @@
-import { theme as chakraTheme, extendTheme } from "@chakra-ui/react";
-import { colors } from "./colors";
-import { Button } from "./components/button";
+import { extendTheme, withDefaultColorScheme } from "@chakra-ui/react";
 import { styles } from "./styles";
+import { typography, colors, semanticTokens } from "./foundations";
+import * as components from "./components";
 
-const theme = extendTheme({
-  styles,
-  colors,
-  components: { Button },
-});
+const config = {
+  cssVarPrefix: "housi",
+};
+
+const theme = extendTheme(
+  {
+    config,
+    styles,
+    colors,
+    semanticTokens,
+    fonts: typography.fonts,
+    fontSizes: typography.fontSizes,
+    fontWeights: typography.fontWeights,
+    components,
+  },
+  withDefaultColorScheme({
+    colorScheme: "primary",
+  })
+);
 
 export default theme;
