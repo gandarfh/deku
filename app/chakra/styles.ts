@@ -2,7 +2,8 @@ export const styles = {
   global: {
     body: {
       fontFamily: "heading",
-      bg: "black.100",
+      color: "text.normal",
+      bg: "white",
     },
   },
 };

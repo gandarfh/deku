@@ -3,27 +3,33 @@ import {
   ComponentSingleStyleConfig,
   SystemProps,
   SystemStyleObjectRecord,
+  theme,
+  ThemeComponents,
 } from "@chakra-ui/react";
 
-const baseStyle: SystemProps = {
+type ButtonType = ThemeComponents["Button"];
+
+const baseStyle: ButtonType["baseStyle"] = {
+  ...theme.components.Button.baseStyle,
   fontWeight: "bold",
   borderRadius: "md",
+
+  px: 2,
   _focus: {
     boxShadow: "0 0 1px 3px #FC8AA8f5, 0 1px 1px rgba(0, 0, 0, .15)",
   },
 };
 
-const defaultProps: ComponentDefaultProps = {
+const defaultProps: ButtonType["defaultProps"] = {
+  ...theme.components.Button.defaultProps,
   size: "md",
 };
 
 const sizes: SystemStyleObjectRecord = {
-  xs: (props) => {
-    return {
-      borderRadius: "lg",
-      height: "24px",
-      fontWeight: "semiBold",
-    };
+  xs: {
+    borderRadius: "lg",
+    height: "24px",
+    fontWeight: "semiBold",
   },
   sm: {
     borderRadius: "lg",
@@ -41,6 +47,7 @@ const sizes: SystemStyleObjectRecord = {
 };
 
 export const Button: ComponentSingleStyleConfig = {
+  ...theme.components.Button,
   baseStyle,
   defaultProps,
   sizes,
