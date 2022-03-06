@@ -4,7 +4,7 @@ export const colors = {
     low: "#828D9E",
   },
   gray: {
-    500: "#242A33", // text default
+    500: "#242A33",
     400: "#828D9E",
     300: "#DDDFE3",
     200: "#F1F3F6",
@@ -16,7 +16,6 @@ export const colors = {
     400: "#FFB000", // default
     300: "#FFDCB3",
   },
-
   green: {
     700: "#054D28",
     600: "#07733D",

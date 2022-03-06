@@ -1,7 +1,5 @@
 import {
-  ComponentDefaultProps,
   ComponentSingleStyleConfig,
-  SystemProps,
   SystemStyleObjectRecord,
   theme,
   ThemeComponents,
@@ -10,18 +8,12 @@ import {
 type ButtonType = ThemeComponents["Button"];
 
 const baseStyle: ButtonType["baseStyle"] = {
-  ...theme.components.Button.baseStyle,
   fontWeight: "bold",
   borderRadius: "md",
-
   px: 2,
-  _focus: {
-    boxShadow: "0 0 1px 3px #FC8AA8f5, 0 1px 1px rgba(0, 0, 0, .15)",
-  },
 };
 
 const defaultProps: ButtonType["defaultProps"] = {
-  ...theme.components.Button.defaultProps,
   size: "md",
 };
 
@@ -47,7 +39,6 @@ const sizes: SystemStyleObjectRecord = {
 };
 
 export const Button: ComponentSingleStyleConfig = {
-  ...theme.components.Button,
   baseStyle,
   defaultProps,
   sizes,

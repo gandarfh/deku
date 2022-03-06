@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Show } from "@chakra-ui/react";
 import React from "react";
 
 interface ScreenSizeProps {
@@ -8,15 +8,11 @@ interface ScreenSizeProps {
 
 const ScreenSize = ({ children, type }: ScreenSizeProps) => {
   const types = {
-    desktop: ["none", null, "block"],
-    mobile: ["block", null, "none"],
+    desktop: "(min-width: 768px)",
+    mobile: "(max-width: 768px)",
   };
 
-  return (
-    <Box w="100%" d={types[type]}>
-      {children}
-    </Box>
-  );
+  return <Show breakpoint={types[type]}>{children}</Show>;
 };
 
 export default ScreenSize;

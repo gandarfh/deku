@@ -13,6 +13,8 @@ import { CartIcon } from "~/assets/icons/navbar/cart.icon";
 import { FavIcon } from "~/assets/icons/navbar/fav.icon";
 import { UserIcon } from "~/assets/icons/navbar/user.icon";
 import Logo from "~/assets/logo";
+import MenuProvider from "../menu-machine";
+import Categories from "./categories";
 
 const Search = () => {
   return <Input maxW={400} placeholder="Search" />;
@@ -36,16 +38,6 @@ const ButtonProfile = () => {
         </Heading>
       </Box>
     </Flex>
-  );
-};
-
-const Categories = () => {
-  return (
-    <Box>
-      <Heading size="heading-5" fontWeight="medium">
-        Categories
-      </Heading>
-    </Box>
   );
 };
 

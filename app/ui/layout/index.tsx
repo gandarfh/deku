@@ -1,13 +1,21 @@
-import { Box, Flex, Grid, GridItem } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
+import React from "react";
 import Footer from "./footer";
 import Header from "./header";
-import Navbar from "./navbar";
 
 interface LayoutProps {
   children?: React.ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
+  const [state, setState] = React.useState(false);
+
+  React.useEffect(() => {
+    setState(true);
+  }, []);
+
+  if (!state) return null;
+
   return (
     <Flex flexDir="column">
       <Header />
@@ -18,17 +26,3 @@ const Layout = ({ children }: LayoutProps) => {
 };
 
 export default Layout;
-
-/* 
-render pages with default layout (navbar + header + footer + page)
-
-
-header  header  header
-
-navbar  page page page
-navbar  page page page
-
-footer  footer  footer
-
-
-*/

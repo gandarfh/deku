@@ -8,27 +8,32 @@ const baseStyle: SystemProps = {
   fontFamily: "heading",
   fontWeight: "medium",
   lineHeight: 1,
+  color: "text.low",
 };
 
 const sizes: SystemStyleObjectRecord = {
-  xs: {
-    fontSize: ["t-xs.m", null, "t-xs.d"],
+  "heading-1": {
+    fontSize: "heading-1",
     lineHeight: "base",
   },
-  sm: {
-    fontSize: ["t-sm.m", null, "t-sm.d"],
+  "heading-2": {
+    fontSize: "heading-2",
     lineHeight: "base",
   },
-  md: {
-    fontSize: ["t-md.m", null, "t-md.d"],
+  "heading-3": {
+    fontSize: "heading-3",
     lineHeight: "base",
   },
-  lg: {
-    fontSize: ["t-lg.m", null, "t-lg.d"],
+  "heading-4": {
+    fontSize: "heading-4",
     lineHeight: "base",
   },
-  xl: {
-    fontSize: ["t-xl.m", null, "t-xl.d"],
+  "heading-5": {
+    fontSize: "heading-5",
+    lineHeight: "base",
+  },
+  "heading-6": {
+    fontSize: "heading-6",
     lineHeight: "base",
   },
 };

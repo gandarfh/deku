@@ -1,6 +1,8 @@
+import { useQuantumMessage } from "@logitao/react";
 import { useMachine } from "@xstate/react";
 import React from "react";
 import { createMachine } from "xstate";
+import { globalEvent } from "~/infrastructure/persistence/global-quantum";
 
 export const enum menu_events {
   open = "open",
@@ -45,6 +47,8 @@ type MenuContextType = {
   context: ContextType;
   valid: ValidType;
   send: <T = unknown>(evt: menu_events, payload?: T) => void;
+  handleClosed: () => void;
+  handleOpen: () => void;
 };
 
 interface MenuProviderProps {
@@ -55,6 +59,20 @@ export const MenuContext = React.createContext({} as MenuContextType);
 export const useMenuContext = () => React.useContext(MenuContext);
 
 const MenuProvider = ({ children }: MenuProviderProps) => {
+  const { handleClosed, handleOpen } = useMenu("menu-hook-context");
+  useQuantumMessage(
+    "menu-category",
+    async ({ category, sender }: any) => {
+      switch (category) {
+        case menu_events.open:
+          return send(menu_events.open);
+        case menu_events.close:
+          return send(menu_events.close);
+      }
+    },
+    { eventBus: globalEvent }
+  );
+
   const [current, send] = useMachine(machine);
 
   const valid: ValidType = {
@@ -66,10 +84,26 @@ const MenuProvider = ({ children }: MenuProviderProps) => {
   const context = current.context;
 
   return (
-    <MenuContext.Provider value={{ context, send, state, valid }}>
+    <MenuContext.Provider
+      value={{ context, send, state, valid, handleClosed, handleOpen }}
+    >
       {children}
     </MenuContext.Provider>
   );
+};
+
+export const useMenu = (key: string) => {
+  const message = useQuantumMessage(key, async () => {}, {
+    eventBus: globalEvent,
+  });
+
+  const handleOpen = () => message("menu-category", menu_events.open);
+  const handleClosed = () => message("menu-category", menu_events.close);
+
+  return {
+    handleOpen,
+    handleClosed,
+  };
 };
 
 export default MenuProvider;

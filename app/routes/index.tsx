@@ -1,8 +1,6 @@
 import { Box, Container } from "@chakra-ui/react";
-import { useMachine } from "@xstate/react";
 import { Outlet } from "remix";
-import { createMachine } from "xstate";
-import Layout from "~/shared/layout";
+import Layout from "~/ui/layout";
 
 export default function Index() {
   return (

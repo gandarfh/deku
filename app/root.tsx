@@ -8,14 +8,9 @@ import {
   useCatch,
 } from "remix";
 import type { MetaFunction } from "remix";
-import {
-  Box,
-  ChakraProvider,
-  Heading,
-  GlobalStyle,
-  DarkMode,
-} from "@chakra-ui/react";
-import theme from "./chakra/theme";
+import { Box, ChakraProvider, Heading, GlobalStyle } from "@chakra-ui/react";
+import theme from "./infrastructure/chakra/theme";
+import React from "react";
 
 export const meta: MetaFunction = () => {
   return { title: "New Remix App" };
